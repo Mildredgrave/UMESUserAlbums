@@ -1,0 +1,12 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Usuario #{{ user.id }}</ion-card-subtitle>
+    <ion-card-title>{{ user.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-text color="medium"><p>@{{ user.username }}</p></ion-text>
+    <p><ion-icon name="mail-outline"></ion-icon>{{ user.email }}</p>
+    <p><ion-icon name="business-outline"></ion-icon>{{ user.company.name }}</p>
+    <ion-button expand="block" (click)="albumsSelected.emit(user)">Ver álbumes</ion-button>
+  </ion-card-content>
+</ion-card>

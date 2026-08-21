@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fotografías</ion-title>
+    <ion-buttons slot="end"><ion-button (click)="close()" aria-label="Cerrar"><ion-icon name="close-outline"></ion-icon></ion-button></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <section class="modal-heading">
+    <p class="eyebrow">ÁLBUM #{{ album.id }}</p>
+    <h2>{{ album.title }}</h2>
+  </section>
+  <div *ngIf="loading" class="state"><ion-spinner name="crescent"></ion-spinner><p>Cargando fotografías...</p></div>
+  <div *ngIf="error" class="state error"><ion-icon name="alert-circle-outline"></ion-icon><p>No se pudieron cargar las fotografías.</p></div>
+  <div *ngIf="!loading && !error && !photos.length" class="state"><p>Este álbum no tiene fotografías.</p></div>
+  <div *ngIf="!loading && !error" class="photo-grid">
+    <figure *ngFor="let photo of photos">
+      <img [src]="photo.thumbnailUrl" [alt]="photo.title" loading="lazy">
+      <figcaption>{{ photo.title }}</figcaption>
+    </figure>
+  </div>
+</ion-content>

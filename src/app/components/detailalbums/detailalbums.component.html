@@ -1,0 +1,11 @@
+<ion-card button (click)="albumSelected.emit(album)">
+  <ion-card-header>
+    <div class="album-icon"><ion-icon name="images-outline"></ion-icon></div>
+    <span class="album-number">ÁLBUM #{{ album.id }}</span>
+    <ion-card-title>{{ album.title }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <span>Propietario: usuario {{ album.userId }}</span>
+    <ion-button fill="clear" (click)="$event.stopPropagation(); albumSelected.emit(album)">Ver fotografías</ion-button>
+  </ion-card-content>
+</ion-card>

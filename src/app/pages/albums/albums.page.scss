@@ -1,0 +1,9 @@
+.page-shell { max-width: 1120px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+.page-intro { margin-bottom: 1.5rem; }
+.page-intro h1 { margin: .25rem 0; font-size: clamp(2rem, 6vw, 3.5rem); }
+.page-intro p:last-child { color: var(--ion-color-medium); margin-top: .5rem; }
+.eyebrow { color: var(--ion-color-primary); font-size: .75rem; font-weight: 700; letter-spacing: .12em; margin: 0; }
+.album-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1rem; }
+.state { min-height: 180px; display: grid; place-content: center; justify-items: center; gap: .75rem; color: var(--ion-color-medium); text-align: center; }
+.state ion-icon { font-size: 2rem; }
+.state.error { color: var(--ion-color-danger); }

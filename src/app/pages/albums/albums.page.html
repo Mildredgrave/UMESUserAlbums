@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"><ion-back-button defaultHref="/users"></ion-back-button></ion-buttons>
+    <ion-title>Álbumes del usuario {{ userId }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <main class="page-shell">
+    <section class="page-intro">
+      <h1>Álbumes</h1>
+      <p>Selecciona un álbum para consultar sus fotografías.</p>
+    </section>
+    <div *ngIf="loading" class="state"><ion-spinner name="crescent"></ion-spinner><p>Cargando álbumes...</p></div>
+    <div *ngIf="error" class="state error"><ion-icon name="alert-circle-outline"></ion-icon><p>No se pudieron cargar los álbumes.</p></div>
+    <div *ngIf="!loading && !error && !albums.length" class="state"><ion-icon name="images-outline"></ion-icon><p>Este usuario no tiene álbumes.</p></div>
+    <div *ngIf="!loading && !error" class="album-grid">
+      <app-detailalbums *ngFor="let album of albums" [album]="album" (albumSelected)="openPhotos($event)"></app-detailalbums>
+    </div>
+  </main>
+</ion-content>
